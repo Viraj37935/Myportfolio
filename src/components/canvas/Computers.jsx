@@ -6,7 +6,7 @@ import CanvasLoader from "../Loader";
 // Computers
 const Computers = ({ isMobile }) => {
   // Import scene
-  const computer = useGLTF("./desktop_pc/scene.gltf");
+  const computer = useGLTF("./desktop_pc/scene.gltf", "/draco/");
 
   return (
     // Mesh
@@ -40,7 +40,6 @@ const ComputersCanvas = () => {
   // Check if device is Mobile
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
-
     setIsMobile(mediaQuery.matches);
 
     // handle screen size change
