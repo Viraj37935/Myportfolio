@@ -6,7 +6,7 @@ import CanvasLoader from "../Loader";
 // Computers
 const Computers = ({ isMobile }) => {
   // Import scene
-  const computer = useGLTF("/desktop_pc/scene.gltf");
+  const computer = useGLTF("/desktop_pc/scene.gltf", "/draco/");
 
   return (
     // Mesh
@@ -83,5 +83,5 @@ const ComputersCanvas = () => {
     </Canvas>
   );
 };
-useGLTF.preload("./desktop_pc/scene.gltf");
+
 export default ComputersCanvas;
