@@ -6,14 +6,12 @@ import CanvasLoader from "../Loader";
 // Computers
 const Computers = ({ isMobile }) => {
   // Import scene
-  const computer = useGLTF("/desktop_pc/scene.gltf", "/draco/");
+  const computer = useGLTF("/desktop_pc/scene.gltf");
 
   return (
     // Mesh
     <mesh>
       {/* Light */}
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color="hotpink" />
       <hemisphereLight intensity={0.15} groundColor="black" />
       <pointLight intensity={1} />
       <spotLight
@@ -73,7 +71,7 @@ const ComputersCanvas = () => {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <OrbitControls enableRotate={!isMobile} enableZoom={true} />
+        <OrbitControls enableRotate={!isMobile} enableZoom={false} />
         {/* Show Model */}
         <Computers isMobile={isMobile} />
       </Suspense>
@@ -83,5 +81,6 @@ const ComputersCanvas = () => {
     </Canvas>
   );
 };
+useGLTF.preload("/desktop_pc/scene.gltf");
 
 export default ComputersCanvas;
