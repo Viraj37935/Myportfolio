@@ -6,12 +6,14 @@ import CanvasLoader from "../Loader";
 // Computers
 const Computers = ({ isMobile }) => {
   // Import scene
-  const computer = useGLTF("./desktop_pc/scene.gltf", "/draco/");
+  const computer = useGLTF("/desktop_pc/scene.gltf");
 
   return (
     // Mesh
     <mesh>
       {/* Light */}
+      <boxGeometry args={[1, 1, 1]} />
+      <meshStandardMaterial color="hotpink" />
       <hemisphereLight intensity={0.15} groundColor="black" />
       <pointLight intensity={1} />
       <spotLight
@@ -25,7 +27,7 @@ const Computers = ({ isMobile }) => {
       <primitive
         object={computer.scene}
         scale={isMobile ? 0.6 : 0.75}
-        position={isMobile ? [0, -3, -2.5] : [0, -3.25, -1.5]}
+        position={isMobile ? [0, -2, -1.5] : [0, -3.25, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -81,5 +83,5 @@ const ComputersCanvas = () => {
     </Canvas>
   );
 };
-
+useGLTF.preload("./desktop_pc/scene.gltf");
 export default ComputersCanvas;
