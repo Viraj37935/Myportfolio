@@ -10,7 +10,7 @@ const Computers = ({ isMobile }) => {
 
   return (
     // Mesh
-    <mesh>
+    <>
       {/* Light */}
       <hemisphereLight intensity={0.15} groundColor="black" />
       <pointLight intensity={1} />
@@ -28,7 +28,7 @@ const Computers = ({ isMobile }) => {
         position={isMobile ? [0, -2, -1.5] : [0, -3.25, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />
-    </mesh>
+    </>
   );
 };
 
@@ -66,12 +66,13 @@ const ComputersCanvas = () => {
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           autoRotate
-          enablePan={true}
+          enablePan={!isMobile}
           enableZoom={false}
+          enableRotate={!isMobile}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <OrbitControls enableRotate={!isMobile} enableZoom={false} />
+
         {/* Show Model */}
         <Computers isMobile={isMobile} />
       </Suspense>
