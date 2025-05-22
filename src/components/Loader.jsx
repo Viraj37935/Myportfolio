@@ -6,20 +6,27 @@ const Loader = () => {
   const { progress } = useProgress(); // use drei progress
 
   return (
-    <Html>
-      <span className="canvas-load">
-        {/* Show percentage */}
+    <Html fullscreen>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          width: "100%",
+          height: "100%",
+        }}
+      >
         <p
           style={{
-            fontSize: 14,
+            fontSize: 16,
             color: "#f1f1f1",
             fontWeight: 800,
-            marginTop: 40,
           }}
         >
           {progress.toFixed(2)}%
         </p>
-      </span>
+      </div>
     </Html>
   );
 };
