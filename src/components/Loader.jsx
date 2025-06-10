@@ -1,18 +1,18 @@
 import React from "react";
 import { Html, useProgress } from "@react-three/drei";
 
-// Loader while canvas (model) is loading
 const Loader = () => {
-  const { progress } = useProgress(); // use drei progress
+  const { progress } = useProgress();
 
   return (
-    <Html fullscreen>
+    <Html center>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
+          backgroundColor: "transparent",
           width: "100%",
           height: "100%",
         }}
